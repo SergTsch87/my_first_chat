@@ -1,6 +1,4 @@
-import socket
-import sys
-import time
+import time, socket, sys
 
 # Створимо сокет та отримаємо ім'я хосту
 new_socket = socket.socket()
