@@ -31,6 +31,13 @@ conn.send(name.encode())
 while True:
     message = input('Me: ')
     conn.send(message.encode())
+
+    if message.lower() == 'exit':
+        break
+
     message = conn.recv(1024)
     message = message.decode()
     print(f'{client}: {message}')
+
+    if message.lower() == 'exit':
+        break
