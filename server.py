@@ -23,3 +23,16 @@ new_socket.listen(1)
 conn, add = new_socket.accept()
 print(f"Received connection from {add[0]}")
 print(f"Connection established. Connected from: {add[0]}")
+
+# Зберігання даних вхідного підключення
+client = (conn.recv(1024)).decode()
+print(client + ' has connected.')
+conn.send(name.encode())
+
+# Доставка пакетів/повідомлень
+while True:
+    message = input('Me: ')
+    conn.send(message.encode())
+    message = conn.recv(1024)
+    message = message.decode()
+    print(f'{client}: {message}')
