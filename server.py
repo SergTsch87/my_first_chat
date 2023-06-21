@@ -12,3 +12,14 @@ port = 8080
 new_socket.bind((host_name, port))
 print("Binding successfull!")
 print(f"This is your IP: {s_ip}")
+
+# Прослуховуємо з'єднання
+name = input('Enter name:')
+new_socket.listen(1)
+
+# Прийняття вхідних підключень
+# Змінна conn підключається до сокета,
+# а змінна 'add' призначається IP-адресі клієнта
+conn, add = new_socket.accept()
+print(f"Received connection from {add[0]}")
+print(f"Connection established. Connected from: {add[0]}")
